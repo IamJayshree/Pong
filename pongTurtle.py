@@ -77,7 +77,7 @@ con.onkeypress(pad_a_up,"w")
 con.onkeypress(pad_a_down,"s")
 con.onkeypress(pad_b_up,"Up")
 con.onkeypress(pad_b_down,"Down")  #paddle B moves with arroy keys
- 
+
 #Main game loop
 while True:
 	con.update()
@@ -97,33 +97,30 @@ while True:
 		ball.sety(-290)
 		ball.dy *= -1 #reversing ball direction
 
-	if ball.xcor() > 390:
-		ball.goto(0,0)
-		ball.dx *= -1 #reversing ball direction
-		score_a += 1
-		pen.clear()
-		pen.write("Player A:{}  Player B:{}".format(score_a,score_b),align="center",font=("Courier",24,"normal"))
+    if ball.xcor() > 351:
+        ball.goto(0, 0)
+        ball.dx *= -1  # reversing ball direction
+        score_a += 1
+        pen.clear()
+        pen.write("Player A:{}  Player B:{}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
 
-	if ball.xcor() < -390:
-		ball.goto(0,0)
-		ball.dx *= -1 #reversing ball direction
-		score_b += 1
-		pen.clear()
-		pen.write("Player A:{}  Player B:{}".format(score_a,score_b),align="center",font=("Courier",24,"normal"))
+    if ball.xcor() < -351:
+        ball.goto(0, 0)
+        ball.dx *= -1  # reversing ball direction
+        score_b += 1
+        pen.clear()
+        pen.write("Player A:{}  Player B:{}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
 
-	#Collision
-	if ball.xcor() > 340 and ball.xcor() < 350 and (ball.xcor() < pad_b.ycor() + 40 and ball.ycor() > pad_b.ycor() - 40):
-		ball.setx(340)
-		ball.dx *= -1
+    #Collision
+    if (ball.xcor() > 340) and (ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40) and (
+            ball.ycor() > paddle_b.ycor() - 40):
+        ball.setx(340)
+        ball.dx *= -1
 
-	if ball.xcor() < -340 and ball.xcor() > -350 and (ball.xcor() < pad_a.ycor() + 40 and ball.ycor() > pad_a.ycor() - 40):
-		ball.setx(-340)
-		ball.dx *= -1
-
-
-
-
-
+    if (ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40) and (
+            ball.ycor() > paddle_a.ycor() - 40):
+        ball.setx(-340)
+        ball.dx *= -1
 
 turtle.done()
 
