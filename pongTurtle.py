@@ -112,7 +112,7 @@ while True:
 		pen.write("Player A:{}  Player B:{}".format(score_a,score_b),align="center",font=("Courier",24,"normal"))
 
 	#Collision
-	if ball.xcor() > 340 and ball.xcor() < 350 and (ball.xcor() < pad_b.ycor() + 40 and ball.ycor() > pad_b.ycor() - 40):
+	if ball.xcor() > 340 and ball.xcor() < 350 and (ball.xcor() < pad_b.xcor() + 40 and ball.ycor() > pad_b.ycor() - 40):
 		ball.setx(340)
 		ball.dx *= -1
 
